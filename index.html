@@ -15,42 +15,83 @@
 <nav class ="nav">
     <div class="container">
         <div class="nav__row">
-
             <a href="#" class="nav__logo">
                 <img src="./img/header/logo.svg" alt="Logo" wight="120" height="100">
             </a>
 
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a href="#" class="nav__link">
+                    <a onclick="setScrollToOptions(0)" href="#" class="nav__link">
                       Main  
                     </a>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__link">
+                    <a onclick="setScrollToOptions(800)" href="#" class="nav__link">
                         Collection
                     </a>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__link">
+                    <a onclick="setScrollToOptions(1500)" href="#"  class="nav__link">
                         Contacts
                     </a>
                 </li>
             </ul>
 
-            <div class="nav__cart">
-                <a href="#" class="nav__cart-link">
-                    <span class="nav__cart-number">3</span>
+            <div class="nav__cart cart active" tabindex="0">
+                <div class="nav__cart-link">
                     <img src="./img/icons/cart.svg" alt="Cart" width="45" height="45">
-                </a>
+                    <span class="nav__cart-number">0</span>
+             </div>
+                <div class="cart__content">
+                    <ul class="cart-content__list">
+                        <li class="cart-content__item">
+                            <article class="cart-content__product cart-product">
+                                <img src="./img/product/1.svg" alt="1" class="cart-product" width="100px">
+                                <div class="cart-product_text">
+                                    <h3 class="cart-product__title">Space Eye</h3>
+                                    <span class="cart-product__price">100 Ξ</span>
+                                </div>
+                                
+                            </article>
+                        </li>
+                        <li class="cart-content__item">
+                            <article class="cart-content__product cart-product">
+                                <img src="./img/product/2.svg" alt="2" class="cart-product" width="100px">
+                                <div class="cart-product_text">
+                                    <h3 class="cart-product__title">Fizzy</h3>
+                                    <span class="cart-product__price">95 Ξ</span>
+                                </div>
+                                
+                            </article>
+                        </li>
+                        <li class="cart-content__item">
+                            <article class="cart-content__product cart-product">
+                                <img src="./img/product/3.svg" alt="3" class="cart-product" width="100px">
+                                <div class="cart-product_text">
+                                    <h3 class="cart-product__title">Peacefully Death</h3>
+                                    <span class="cart-product__price">70 Ξ</span>
+                                </div>
+                                
+                            </article>
+                        </li>
+                    </ul>
+                    <div class="cart-content__bottom">
+                        <div class="cart-content__fullprice">
+                            <span>Total:</span>
+                            <div class="fullprice">
+                                <span>265 Ξ</span>
+                            </div>
+                        </div>
+                        <button class="cart-content__btn">
+                            Go to cart!
+                        </button>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 </nav>
-<div class="line">
-    <hr>
-</div>
 <header class="header">
     <div class="container">
         <div class="header__row">
@@ -64,18 +105,186 @@
                     </p>
                 </div>
             <div class="header_btn">
-                <a onclick="setScrollToOptions(400)" class="button" href="#">
+                <a onclick="setScrollToOptions(800)" class="button" href="#">
                     Buy now!
                 </a>
             </div>
             </div>
             <div class="header__gif">
-               <img src="./img/phhh.svg" alt="Header photo" width="400" height="400"> 
+                <img src="./img/giphy.gif" alt="Header photo" width="400" height="400" style="border-radius: 25%;"> 
+             </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="featured">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header__title">
+                    New NFT collections!
+                </h2>
+                <div class="section-header_description">
+                    <p>
+                        NFT updating every 24 hrs!
+                    </p>
+                </div>
+            </div>
+            <div class="product-wrapper" id="wrapper">
+            <!--prod1-->
+                <article class="product1">
+                    <img src="./img/product/1.svg" alt="First" class="product__img" width="250" height="250" style="border-radius: 25%">
+                    <h4 class="product__title">Space Eye</h4>
+                    <div class="product__count">
+
+
+                    </div>
+                    <div class="product__price">
+                        <span class="product__price">
+                            100 Ξ
+                        </span>
+                    </div>
+                    <button class="product__btn">Add to cart</button>
+                
+                </article>
+
+            <!--prod2-->
+            <article class="product2">
+                <img src="./img/product/2.svg" alt="First" class="product__img"  style="border-radius: 25%">
+                <h4 class="product__title">Fizzy</h4>
+                <div class="product__count">
+
+
+                </div>
+                <div class="product__price">
+                    <span class="product__price">
+                        70 Ξ
+                    </span>
+                </div>
+                <button class="product__btn">Add to cart</button>
+            
+            </article>
+
+            <!--prod3-->
+            <article class="product3">
+                <img src="./img/product/3.svg" alt="Third" class="product__img" width="250" height="250" style="border-radius: 25%">
+                <h4 class="product__title">Peacefully Death</h4>
+                <div class="product__count">
+
+
+                </div>
+                <div class="product__price">
+                    <span class="product__price">
+                        95 Ξ
+                    </span>
+                </div>
+                <button class="product__btn">Add to cart</button>
+            
+            </article>
+            <!--prod4-->
+            <article class="product4">
+                <img src="./img/product/4.svg" alt="Fourth" class="product__img" width="250" height="250" style="border-radius: 25%">
+                <h4 class="product__title">Weather</h4>
+                <div class="product__count">
+
+
+                </div>
+                <div class="product__price">
+                    <span class="product__price">
+                        175 Ξ
+                    </span>
+                </div>
+                <button class="product__btn">Add to cart</button>
+            
+            </article>
+            <!--prod5-->
+            <article class="product5">
+                <img src="./img/product/5.svg" alt="Fifth" class="product__img" width="250" height="250" style="border-radius: 25%">
+                <h4 class="product__title">Fake Love</h4>
+                <div class="product__count">
+
+
+                </div>
+                <div class="product__price">
+                    <span class="product__price">
+                        115 Ξ
+                    </span>
+                </div>
+                <button class="product__btn">Add to cart</button>
+            
+            </article>
+            <!--prod6-->
+            <article class="product6">
+                <img src="./img/product/6.svg" alt="Sixth" class="product__img" width="250" height="250" style="border-radius: 25%">
+                <h4 class="product__title">Fear</h4>
+                <div class="product__count">
+
+
+                </div>
+                <div class="product__price">
+                    <span class="product__price">
+                        500 Ξ
+                    </span>
+                </div>
+                <button class="product__btn">Add to cart</button>
+            
+            </article>
+            <!--prod7-->
+            <article class="product7">
+                <img src="./img/product/7.svg" alt="Seventh" class="product__img" width="250" height="250" style="border-radius: 25%">
+                <h4 class="product__title">Plants</h4>
+                <div class="product__count">
+
+
+                </div>
+                <div class="product__price">
+                    <span class="product__price">
+                        200 Ξ
+                    </span>
+                </div>
+                <button class="product__btn">Add to cart</button>
+            
+            </article>
+            <!--prod8-->
+            <article class="product8">
+                <img src="./img/product/8.svg" alt="Eighth" class="product__img" width="250" height="250" style="border-radius: 25%">
+                <h4 class="product__title">Invoker</h4>
+                <div class="product__count">
+
+
+                </div>
+                <div class="product__price">
+                    <span class="product__price">
+                        300 Ξ
+                    </span>
+                </div>
+                <button class="product__btn">Add to cart</button>
+            
+            </article>
+            </div>
+        </div>
+    </section>
+</main>
+<header class="contacts">
+    <div class="container">
+        <div class="contacts__title">
+            <div class="logo3">Contacts</div>
+			<div class="conttxt">Here you can find ways to contact me</div>
+            <div class="icon">
+                <div class="cnt1">
+                    <p><a href="https://github.com/orlovyz" target="_blank"><img src="./img/icons/git.svg" alt="git" width="75px"></a></p>
+                </div>
+                <div class="cnt2">
+                    <p><a href="https://t.me/orlovyz" target="_blank"><img src="./img/icons/tg.svg" alt="tg" width="75px"></a></p>
+                </div>
+                <div class="cnt3">
+                    <p><a href="mailto:robots2187@gmail.com" target="_blank"><img src="./img/icons/gmail.svg" alt="email" width="75px"></a></p>
+                </div>
             </div>
         </div>
     </div>
-
 </header>
-
+<script src="./js/product.js"></script>
+<script src="./js/scroll.js"></script>
 </body>
 </html>
