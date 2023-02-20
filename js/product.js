@@ -3,26 +3,7 @@ const cartProductsList = document.querySelector('.cart-content__list');
 const cart = document.querySelector('.cart');
 const cartNumb = document.querySelector('.nav__cart-number');
 const fullPrice = document.querySelector('.fullprice');
-const database = [
-{
-    id : 1,
-    title: "SPACE EYE",
-    price: 100,
-    url: './img/product/1.svg'
-},
-{
-    id : 2,
-    title: "FIZZY",
-    price: 90,
-    url: './img/product/2.svg'
-},
-{
-    id : 3,
-    title: "FEAR",
-    price: 70,
-    url: './img/product/3.svg'
-}
-];
+import data from './database.js/' assert { type: 'js' };
 
 let price = 0;
 
@@ -53,21 +34,25 @@ const printNum = () => {
 
 const generateCartProduct = (img, title, price, id) => {
     return `
-    <li class="cart-content__item">
-                            <article class="cart-content__product cart-product data-id="${id}">
-                                <img src="${img}" alt="1" class="cart-product" width="100px">
-                                <div class="cart-product_text">
-                                    <h3 class="cart-product__title">${title}</h3>
-                                    <span class="cart-product__price">${price}</span>
-                                </div>
-                                
-                            </article>
-                        </li>
+    <article class="product${id}">
+                <img src="${img}" alt="${id}" class="product__img"  style="border-radius: 25%">
+                <h4 class="product__title">${title}</h4>
+                <div class="product__count">
+
+
+                </div>
+                <div class="product__price">
+                    <span class="product__price">
+                       ${price} Ξ
+                    </span>
+                </div>
+                <button class="product__btn">Add to cart</button>
+            
+            </article>
     `;
 }
 
 productsBtn.forEach(el => {
-    el.closest('.product1').setAttribute('data-id', randID()); //rand id for each prod
     el.addEventListener('click', (e) => {
         let self = e.currentTarget;
         let parent = self.closest('.product1');
@@ -75,7 +60,7 @@ productsBtn.forEach(el => {
         let img = parent.querySelector('.product__img').getAttribute('src');
         let title = parent.querySelector('.product__title').textContent;
         let priceNumber = parseInt(parent.querySelector('.product__price').textContent);
-
+        
         //summ 
         plusFullPrice(priceNumber);
         console.log(price);
@@ -91,14 +76,26 @@ productsBtn.forEach(el => {
     });
 });
 
-const promise1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-       resolve(database);
-    }, 1000);
-  });
 
+const promise1 = new Promise(promiseBody);
+
+ function promiseBody(resolve, reject) {
+     setTimeout(() => {
+         resolve(data);
+     }, 1000);
+ }
+
+ 
   promise1.then((result) => {
     const mapres = result.map((x) => generateCartProduct(x.url, x.title, x.price, x.id));
+    let productHtmls = []
+    for(let i = 0; i < result.length; i++) {
+        const elem = result[i]
+        const html = generateCartProduct(elem.url, elem.title, elem.price, elem.id);
+
+        productHtmls.push(html)
+
+    }
     const docwr =  document.getElementById('wrapper');
     
     for (let x of mapres){
